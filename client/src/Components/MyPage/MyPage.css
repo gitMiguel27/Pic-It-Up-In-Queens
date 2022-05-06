@@ -1,0 +1,31 @@
+.mypage {
+    min-height: 100vh;
+}
+
+.logged-in {
+    display: flex;
+    flex-direction: row;
+}
+
+.profile-side h1 {
+    color: rgb(255, 255, 255);
+    /* font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; */
+    font-family: 'Bungee', cursive;
+}
+
+.user-posts {
+    width: 50%;
+}
+
+.make-a-post h1 {
+    color: rgb(255, 255, 255);
+    /* font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; */
+    font-family: 'Bungee', cursive;
+}
+
+#login-message {
+    color: rgb(255, 255, 255);
+    /* font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; */
+    font-family: 'Bungee', cursive;
+    text-align: center;
+}

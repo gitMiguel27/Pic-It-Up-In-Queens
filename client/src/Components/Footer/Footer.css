@@ -1,0 +1,32 @@
+.main-footer {
+    padding-top: 3em;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.col-small {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.15);
+    /* max-width: fit-content; */
+}
+
+.col h4 {
+    color: aqua;
+    font-family: 'Bungee', cursive;
+}
+
+.list-unstyled a {
+    text-decoration: none;
+    font-family: 'Bungee', cursive;
+    color: white;
+}
+
+.list-unstyled a:hover{
+    color: aqua;
+}

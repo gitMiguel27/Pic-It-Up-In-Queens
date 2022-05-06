@@ -1,0 +1,10 @@
+.leaderboard {
+    min-height: 100vh;
+}
+
+#leaderboard-title {
+    text-align: center;
+    color: rgb(255, 255, 255);
+    /* font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; */
+    font-family: 'Bungee', cursive;
+}

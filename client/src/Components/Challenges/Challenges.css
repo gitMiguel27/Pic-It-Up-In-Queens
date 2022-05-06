@@ -1,0 +1,17 @@
+.challenges-page {
+    min-height: 100vh;
+}
+
+.challenges-titles {
+    text-align: center;
+    color: rgb(255, 255, 255);
+    /* font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; */
+    font-family: 'Bungee', cursive;
+}
+
+.challenge-cards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}

@@ -1,0 +1,67 @@
+.picitup101 {
+    min-height: 100vh;
+}
+
+#picitup101-title {
+    text-align: center;
+    color: rgb(255, 255, 255);
+    /* font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; */
+    font-family: 'Bungee', cursive;
+}
+
+.rules-section {
+    text-align: left;
+    color: rgb(255, 255, 255);
+    /* font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; */
+    font-family: 'Bungee', cursive;
+}
+
+#rules-list {
+    background: rgba(255, 255, 255, 0.2);
+    max-width: 49%;
+}
+
+.rule p {
+    font-size: 1.25em;
+    line-height: 1.75em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+}
+
+.warnings-section {
+    text-align: left;
+    color: rgb(255, 255, 255);
+    /* font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; */
+    font-family: 'Bungee', cursive;
+}
+
+#warnings-list {
+    background: rgba(255, 255, 255, 0.2);
+    max-width: 49%;
+}
+
+.warning p {
+    font-size: 1.25em;
+    line-height: 1.75em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+}
+
+.advice-section {
+    text-align: left;
+    color: rgb(255, 255, 255);
+    /* font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; */
+    font-family: 'Bungee', cursive;
+}
+
+#advice-list {
+    background: rgba(255, 255, 255, 0.2);
+    max-width: 49%;
+}
+
+.advice p {
+    font-size: 1.25em;
+    line-height: 1.75em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+}

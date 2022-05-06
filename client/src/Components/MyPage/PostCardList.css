@@ -1,0 +1,11 @@
+.post-card-list h1{
+    color: rgb(0, 0, 0);
+    /* font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; */
+    font-family: 'Bungee', cursive;
+    width: max-content;
+    /* padding-left: 2%; */
+}
+
+#my-posts {
+    padding-left: 2%;
+}

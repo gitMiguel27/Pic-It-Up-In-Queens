@@ -1,0 +1,37 @@
+.navbar {
+    /* background-color: #edeaea; */
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbar-links {
+    padding-top: 2.5em;
+}
+
+.navbar-links > * {
+    /* font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; */
+    font-family: 'Bungee', cursive;
+    color: white;
+    text-decoration: none;
+    margin: 0;
+    padding: 1em;
+    font-size: large;
+}
+
+.navbar-links > *:hover {
+    /* color: rgb(94, 43, 43); */
+    color: black;
+}
+
+.active {
+    /* color: rgb(94, 43, 43); */
+    color: black;
+}
+
+.typical-logo {
+    /* font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; */
+    font-family: 'Bungee', cursive;
+    font-size: x-large;
+    /* color: rgb(94, 43, 43); */
+    color: black;
+}
