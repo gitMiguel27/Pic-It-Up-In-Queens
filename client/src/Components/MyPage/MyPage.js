@@ -5,6 +5,10 @@ import "./MyPage.css"
 
 function MyPage({ user }) {
     const [ userPosts, setUserPosts ] = useState([]);
+    const [ makePostData, setMakePostData ] = useState({
+        challenge: "",
+        image: ""
+    })
 
     useEffect(() => {
         if (user) {
@@ -17,6 +21,23 @@ function MyPage({ user }) {
             })
         }
     }, [user])
+
+    function handleChange(event) {
+        setMakePostData({
+            ...makePostData,
+            [event.target.name]: event.target.value
+        })
+    }
+
+    function handleMakePost(event) {
+        event.preventDefault();
+        console.log(makePostData);
+
+        setMakePostData({
+            challenge: "",
+            image: ""
+        })
+    }
 
     return (
         <div className="mypage">
@@ -31,6 +52,11 @@ function MyPage({ user }) {
                         </div>
                         <div className="make-a-post">
                             <h1>Make A Post!</h1>
+                            <form onSubmit={handleMakePost}>
+                                <input type="text" name="challenge" placeholder="challenge number..." required value={makePostData.challenge} onChange={handleChange} />
+                                <input type="text" name="image" placeholder="image..." required value={makePostData.image} onChange={handleChange} />
+                                <button>Login</button>
+                            </form>
                         </div>
                     </div>
                     </>
