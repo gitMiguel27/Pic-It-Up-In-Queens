@@ -17,7 +17,7 @@
 }
 
 .col h4 {
-    color: aqua;
+    color: black;
     font-family: 'Bungee', cursive;
 }
 
@@ -28,5 +28,5 @@
 }
 
 .list-unstyled a:hover{
-    color: aqua;
+    color: black;
 }

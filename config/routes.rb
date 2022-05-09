@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   
   resources :challenges, only: [:index]
 
-  resources :posts, only: [:index]
+  resources :posts, only: [:index, :create]
 
   get "/users", to: "users#index"
   post "/signup", to: "users#create"

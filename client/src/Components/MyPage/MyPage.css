@@ -17,6 +17,10 @@
     width: 50%;
 }
 
+.make-a-post {
+    max-width: 35%;
+}
+
 .make-a-post h1 {
     color: rgb(255, 255, 255);
     /* font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; */
@@ -28,4 +32,24 @@
     /* font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; */
     font-family: 'Bungee', cursive;
     text-align: center;
+}
+
+.post-area {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.post-form {
+    display: flex;
+    flex-direction: column;
+    max-width: max-content;
+}
+
+.post-preview {
+    margin: 2%;
+}
+
+.post-preview-img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
 }

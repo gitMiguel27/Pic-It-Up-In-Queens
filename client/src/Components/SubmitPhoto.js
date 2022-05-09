@@ -35,12 +35,9 @@ function SubmitPhoto() {
       return (
         <div className="submitphoto">
           <form onSubmit={handleSubmit}>
-            <label>
-              Upload File:
             <input type="file" accept="image/*"/>
-            </label>
             <br/>
-            <button type={"submit"}>Submit</button>
+            <button type="submit">Post</button>
           </form>
         </div>
     );

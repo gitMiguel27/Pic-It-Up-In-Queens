@@ -3,6 +3,8 @@ class Posts < ActiveRecord::Migration[6.1]
     create_table :posts do |t|
       t.string :image
       t.date :date
+      t.integer :latitude
+      t.integer :longitude
       t.belongs_to :user, foreign_key: true
       t.belongs_to :challenge, foreign_key: true
 
