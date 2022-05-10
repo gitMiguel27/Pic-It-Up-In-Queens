@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 2022_05_09_210937) do
   end
 
   create_table "posts", force: :cascade do |t|
-    t.string "image"
+    t.string "image", default: "https://media.wired.com/photos/624396fa9461c8562e44fdb2/master/pass/Stop-Doomscrolling-Gear-1300226705.jpg"
     t.date "date"
     t.integer "latitude"
     t.integer "longitude"

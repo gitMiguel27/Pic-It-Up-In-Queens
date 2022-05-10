@@ -1,8 +1,6 @@
 class Post < ApplicationRecord
   belongs_to :user
   belongs_to :challenge
-  has_many_attached :images
-
 
   validate :challenge_latitude_comparison, :on => :create
   validate :challenge_longitude_comparison, :on => :create

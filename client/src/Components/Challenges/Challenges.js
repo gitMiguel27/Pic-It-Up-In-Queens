@@ -18,8 +18,8 @@ function Challenges() {
 
     return (
         <div className="challenges-page">
-            <h1 className="challenges-titles">Challenge Of The Day</h1>
-            <h1 className="challenges-titles">Past Challenges</h1>
+            <h1 className="challenges-titles">Challenge Of The Day - 5 pts.</h1>
+            <h1 className="challenges-titles">Past Challenges - 3 pts.</h1>
             <div className="challenge-cards">
                 {
                     challenges.map(challenge => {

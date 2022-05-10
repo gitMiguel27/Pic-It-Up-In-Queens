@@ -2,6 +2,7 @@ import React from "react";
 import './PostCard.css';
 
 function PostCard({ post }) {
+
     return (
         <div className="post-card">
             <div className="post-card-header">

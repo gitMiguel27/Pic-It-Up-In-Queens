@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-
+    # skip_before_action :authorize, only: [:create, :index]
     def index
         posts = Post.all
         render json: posts, status: :ok
@@ -13,6 +13,6 @@ class PostsController < ApplicationController
     private
     
     def post_params
-      params.permit(:image, :date, :latitude, :longitude, :user_id, :challenge_id, images: [])
+      params.permit(:date, :latitude, :longitude, :user_id, :challenge_id)
     end
 end

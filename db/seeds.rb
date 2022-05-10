@@ -1,3 +1,7 @@
+Post.destroy_all
+User.destroy_all
+Challenge.destroy_all
+
 puts '🌱 Seeding Users...'
 
 miguel = User.create(full_name: "Miguel Nazario", username: "duhitz_miguel", email: "mnazario@gmail.com", password: "miggy123", profile_pic: "/images/duhitz_miguel.jpeg", points: 10)

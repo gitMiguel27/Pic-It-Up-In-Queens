@@ -11,6 +11,16 @@ function MyPage({ user }) {
         challenge: "",
         image: ""
     })
+    // const [ challenges, setChallenges ] = useState([]);
+
+    // useEffect(() => {
+    //     fetch("/challenges")
+    //     .then(resp => resp.json())
+    //     .then(challengesData => {
+    //         // console.log(challengesData);
+    //         setChallenges(challengesData);
+    //     });
+    // }, [])
 
     useEffect(() => {
         if (user) {
@@ -66,7 +76,10 @@ function MyPage({ user }) {
             const newImageExif = piexif.load(Base64);
             const latitude = newImageExif['GPS'][piexif.GPSIFD.GPSLatitude][2][0]
             const longitude = newImageExif['GPS'][piexif.GPSIFD.GPSLongitude][2][0]
-  
+
+            // console.log(challenges)
+            // console.log(challenges.find(c => c.id === parseInt(makePostData.challenge)).image)
+
             // console.log([latitude, longitude]);
             fetch('/posts', {
                 method: "Post",
@@ -74,23 +87,24 @@ function MyPage({ user }) {
                     "Content-Type" : "application/json"
                 },
                 body: JSON.stringify({
-                    image: makePostData.image,
-                    date: 20220509,
+                    date: 20220510,
                     latitude: latitude,
                     longitude: longitude,
                     user_id: user.id,
-                    challenge_id: makePostData.challenge
+                    challenge_id: parseInt(makePostData.challenge)
                 })
             })
             .then(resp => resp.json())
-            .then(something => console.log(something));
+            .then(newPost => {
+                setUserPosts([...userPosts, newPost]);
+            });
 
             setMakePostData({
                 challenge: "",
                 image: ""
             });
             setImagePreview("");
-            
+
           };
 
           reader.onerror = ( error ) => {
@@ -98,28 +112,6 @@ function MyPage({ user }) {
           };
         }
     }
- 
-    // function loadPiexif( file ) {
-    //     const reader = new FileReader();
-    //     if (file) {
-    //       reader.readAsDataURL(file);
-    //       reader.onload = () => {
-    //         const Base64 = reader.result;
-    //         //convert binary to base64
-    //         console.log(Base64);
-    //         //use piexif.load on base64 here!
-    //         // console.log(piexif.load(Base64));
-    //         const newImageExif = piexif.load(Base64);
-    //         // console.log(newImageExif['GPS'][piexif.GPSIFD.GPSLatitude])
-    //         // console.log(newImageExif['GPS'][piexif.GPSIFD.GPSLongitude])
-  
-    //         return newImageExif
-    //       };
-    //       reader.onerror = ( error ) => {
-    //         console.log("error: ", error);
-    //       };
-    //     }
-    // };
 
     return (
         <div className="mypage">
@@ -154,3 +146,25 @@ function MyPage({ user }) {
 }
 
 export default MyPage;
+
+    // function loadPiexif( file ) {
+    //     const reader = new FileReader();
+    //     if (file) {
+    //       reader.readAsDataURL(file);
+    //       reader.onload = () => {
+    //         const Base64 = reader.result;
+    //         //convert binary to base64
+    //         console.log(Base64);
+    //         //use piexif.load on base64 here!
+    //         // console.log(piexif.load(Base64));
+    //         const newImageExif = piexif.load(Base64);
+    //         // console.log(newImageExif['GPS'][piexif.GPSIFD.GPSLatitude])
+    //         // console.log(newImageExif['GPS'][piexif.GPSIFD.GPSLongitude])
+  
+    //         return newImageExif
+    //       };
+    //       reader.onerror = ( error ) => {
+    //         console.log("error: ", error);
+    //       };
+    //     }
+    // };
