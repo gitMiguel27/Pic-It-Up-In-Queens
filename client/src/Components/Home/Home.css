@@ -19,14 +19,14 @@
 }
 
 .announcement p {
-    font-size: 1.25em;
+    font-size: 1.75em;
     line-height: 1.75em;
     padding-left: 0.5em;
     padding-right: 0.5em;
 }
 
 #about-us p {
-    font-size: 1.25em;
+    font-size: 1.75em;
     background: rgba(255, 255, 255, 0.2);
     max-width: 49.5%;
     text-indent: 2em;

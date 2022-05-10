@@ -11,16 +11,6 @@ function MyPage({ user }) {
         challenge: "",
         image: ""
     })
-    // const [ challenges, setChallenges ] = useState([]);
-
-    // useEffect(() => {
-    //     fetch("/challenges")
-    //     .then(resp => resp.json())
-    //     .then(challengesData => {
-    //         // console.log(challengesData);
-    //         setChallenges(challengesData);
-    //     });
-    // }, [])
 
     useEffect(() => {
         if (user) {
@@ -77,10 +67,6 @@ function MyPage({ user }) {
             const latitude = newImageExif['GPS'][piexif.GPSIFD.GPSLatitude][2][0]
             const longitude = newImageExif['GPS'][piexif.GPSIFD.GPSLongitude][2][0]
 
-            // console.log(challenges)
-            // console.log(challenges.find(c => c.id === parseInt(makePostData.challenge)).image)
-
-            // console.log([latitude, longitude]);
             fetch('/posts', {
                 method: "Post",
                 headers: {
