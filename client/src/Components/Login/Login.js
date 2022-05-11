@@ -44,7 +44,7 @@ function Login({ setUser, setPoints }) {
             username: "",
             password: ""
           })
-    }
+    };
 
     return (
         <div className="login">

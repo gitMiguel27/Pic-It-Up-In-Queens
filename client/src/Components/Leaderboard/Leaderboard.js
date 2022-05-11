@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Typical from 'react-typical';
 import './Leaderboard.css';
 
 function Leaderboard() {
@@ -31,7 +32,20 @@ function Leaderboard() {
                                 return (
                                     <tr>
                                         <td>{rankedUsers.indexOf(user)+1}</td>
-                                        <td>{user.username}</td>
+                                        <td>
+                                            <Typical
+                                                loop={Infinity}
+                                                wrapper="b"
+                                                steps={[
+                                                    `${user.username}`,
+                                                    1500,
+                                                    '',
+                                                    100,
+                                                    `${user.username}`,
+                                                    8500
+                                                ]}
+                                            />
+                                        </td>
                                         <td>{user.points}</td>
                                     </tr>
                                 )

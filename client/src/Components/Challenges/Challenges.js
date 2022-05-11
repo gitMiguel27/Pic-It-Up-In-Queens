@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ChallengeCard from "./ChallengeCard";
+import Typical from 'react-typical';
 import "./Challenges.css"
 
 function Challenges() {
@@ -19,7 +20,20 @@ function Challenges() {
 
     return (
         <div className="challenges-page">
-            <h1 className="challenges-titles">Challenge Of The Day - 5 pts.</h1>
+            <h1 className="challenges-titles"> Challenge of the Day -
+                <Typical
+                    loop={Infinity}
+                    wrapper="b"
+                    steps={[
+                        ' 5 pts.',
+                        800,
+                        '',
+                        800,
+                        ' 5 pts.',
+                        10000
+                    ]}
+                />
+            </h1>
             <div className="challenge-of-the-day">
                 {
                     lastChallenge.map(challenge => {
@@ -27,7 +41,20 @@ function Challenges() {
                     })
                 }
             </div>
-            <h1 className="challenges-titles">Past Challenges - 3 pts.</h1>
+            <h1 className="challenges-titles">Past Challenges -
+                <Typical
+                    loop={Infinity}
+                    wrapper="b"
+                    steps={[
+                        ' 3 pts.',
+                        800,
+                        '',
+                        800,
+                        ' 3 pts.',
+                        10000
+                    ]}
+                />
+            </h1>
             <div className="challenge-cards">
                 {
                     challengesExceptLast.map(challenge => {

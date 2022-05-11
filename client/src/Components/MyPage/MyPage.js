@@ -86,40 +86,42 @@ function MyPage({ user, setPoints, points }) {
                     challenge_id: parseInt(makePostData.challenge)
                 })
             })
-            .then(resp => resp.json())
-            .then(newPost => {
-                setUserPosts([...userPosts, newPost]);
+            .then(resp => {
+                if (resp.created) {
+                    resp.json().then(newPost => {
+                        setUserPosts([...userPosts, newPost]);
+                        if (challenges[parseInt(makePostData.challenge)-1] === challenges.length){
+                            fetch(`/users/${user.username}`, {
+                                method: "PATCH",
+                                headers: {
+                                    "Content-Type": "application/json"
+                                },
+                                body: JSON.stringify({
+                                    points: user.points + 5 + challenges[parseInt(makePostData.challenge) - 1].difficulty
+                                })
+                            })
+                            .then(resp => resp.json())
+                            .then(userData => {
+                                setPoints(userData.points);
+                            });
+                        } else {
+                            fetch(`/users/${user.username}`, {
+                                method: "PATCH",
+                                headers: {
+                                    "Content-Type": "application/json"
+                                },
+                                body: JSON.stringify({
+                                    points: user.points + 3 + challenges[parseInt(makePostData.challenge) - 1].difficulty
+                                })
+                            })
+                            .then(resp => resp.json())
+                            .then(userData => {
+                                setPoints(userData.points);
+                            });
+                        };
+                    })
+                }
             });
-
-            if (challenges[parseInt(makePostData.challenge)-1] === challenges.length){
-                fetch(`/users/${user.username}`, {
-                    method: "PATCH",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify({
-                        points: user.points + 5 + challenges[parseInt(makePostData.challenge) - 1].difficulty
-                    })
-                })
-                .then(resp => resp.json())
-                .then(userData => {
-                    setPoints(userData.points);
-                });
-             } else {
-                fetch(`/users/${user.username}`, {
-                    method: "PATCH",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify({
-                        points: user.points + 3 + challenges[parseInt(makePostData.challenge) - 1].difficulty
-                    })
-                })
-                .then(resp => resp.json())
-                .then(userData => {
-                    setPoints(userData.points);
-                });
-             };
 
             setMakePostData({
                 challenge: "",

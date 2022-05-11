@@ -2,8 +2,7 @@ class Post < ApplicationRecord
   belongs_to :user
   belongs_to :challenge
 
-  validate :challenge_latitude_comparison, :on => :create
-  validate :challenge_longitude_comparison, :on => :create
+  validate :challenge_latitude_comparison, :challenge_longitude_comparison
 
   def challenge_latitude_comparison
     if self.challenge.latitude - self.latitude > 50 ||  self.challenge.latitude - self.latitude < -50
