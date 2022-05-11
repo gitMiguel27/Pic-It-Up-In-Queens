@@ -13,13 +13,16 @@ import Leaderboard from '../Leaderboard/Leaderboard';
 import './App.css';
 
 function App() {
-  const [user, setUser] = useState(null);
+  const [ user, setUser ] = useState(null);
+  const [ points, setPoints ] = useState(0);
 
   useEffect(() => {
     // auto-login
     fetch("/me").then((resp) => {
       if (resp.ok) {
-        resp.json().then((user) => setUser(user));
+        resp.json().then((user) => {
+          setUser(user)
+        })
       }
     });
   }, []);
@@ -40,11 +43,11 @@ function App() {
           </Route>
           <Route path='/leaderboard' element={<Leaderboard />}>
           </Route>
-          <Route path='/login' element={<Login setUser={setUser}/>}>
+          <Route path='/login' element={<Login setUser={setUser} setPoints={setPoints}/>}>
           </Route>
           <Route path='/signup' element={<Signup setUser={setUser}/>}>
           </Route>
-          <Route path='/mypage' element={<MyPage user={user}/>}>
+          <Route path='/mypage' element={<MyPage user={user} setPoints={setPoints} points={points}/>}>
           </Route>
         </Routes>
       <Footer/>

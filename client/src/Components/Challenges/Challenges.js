@@ -12,7 +12,7 @@ function Challenges() {
             // console.log(challengesData);
             setChallenges(challengesData);
         });
-    }, [])
+    }, []);
 
     const lastChallenge = challenges.filter(challenge => challenge.id === challenges.length);
     const challengesExceptLast = challenges.filter(challenge => challenge.id !== challenges.length);

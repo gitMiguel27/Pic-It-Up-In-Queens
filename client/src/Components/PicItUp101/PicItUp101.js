@@ -9,13 +9,13 @@ function PicItUp101() {
                 <h1 className="rules-section">Rules</h1>
                 <ol id="rules-list">
                     <li className="rule">
-                        <p>Do Not submit more than one post for a single challenge!</p>
+                        <p>Google the location, not the image!</p>
                     </li>
                     <li className="rule">
-                        <p>Do Not submit more than one post for a single challenge!</p>
+                        <p>You must be in close proximity to the challenge site for your picture!</p>
                     </li>
                     <li className="rule">
-                        <p>Do Not submit more than one post for a single challenge!</p>
+                        <p>Do not harm other players or intervene with other players’ efforts in playing the game.</p>
                     </li>
                 </ol>
             </div>
@@ -23,13 +23,13 @@ function PicItUp101() {
                 <h1 className="warnings-section">Warnings</h1>
                 <ol id="warnings-list">
                     <li className="warning">
-                        <p>Do Not submit more than one post for a single challenge!</p>
+                        <p>Do not submit more than one post for a single challenge!</p>
                     </li>
                     <li className="warning">
-                        <p>Do Not submit more than one post for a single challenge!</p>
+                        <p>Always be aware of your surroundings and your belongings.</p>
                     </li>
                     <li className="warning">
-                        <p>Do Not submit more than one post for a single challenge!</p>
+                        <p>Pic-It-Up is not responsible for any mishaps for your playing the game.</p>
                     </li>
                 </ol>
             </div>
@@ -37,13 +37,13 @@ function PicItUp101() {
                 <h1 className="advice-section">Advice</h1>
                 <ol id="advice-list">
                     <li className="advice">
-                        <p>Do Not submit more than one post for a single challenge!</p>
+                        <p>Don’t stay on your phone, you might miss a spot while you’re looking.</p>
                     </li>
                     <li className="advice">
-                        <p>Do Not submit more than one post for a single challenge!</p>
+                        <p>Be open to local restaurants, culture and attractions - you would be surprised by what Queens has to offer.</p>
                     </li>
                     <li className="advice">
-                        <p>Do Not submit more than one post for a single challenge!</p>
+                        <p>Bring your own personality to the game - take a selfie!</p>
                     </li>
                 </ol>
             </div>

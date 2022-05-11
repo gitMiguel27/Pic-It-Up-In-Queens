@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import "./Login.css"
 
-function Login({ setUser }) {
+function Login({ setUser, setPoints }) {
     const navigate = useNavigate();
     const [ loginData, setLoginData ] = useState({
         username: "",
@@ -29,7 +29,10 @@ function Login({ setUser }) {
             }),
         }).then(resp => {
             if (resp.ok) {
-                resp.json().then(user => setUser(user));
+                resp.json().then(user => {
+                    setUser(user)
+                    setPoints(user.points)
+                });
                 navigate('/mypage');
             };
         });

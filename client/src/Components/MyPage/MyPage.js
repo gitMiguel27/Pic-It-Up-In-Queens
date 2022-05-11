@@ -4,13 +4,23 @@ import PostCardList from "./PostCardList";
 import piexif from 'piexifjs';
 import "./MyPage.css"
 
-function MyPage({ user }) {
+function MyPage({ user, setPoints, points }) {
     const [ userPosts, setUserPosts ] = useState([]);
     const [ imagePreview, setImagePreview ] = useState("");
     const [ makePostData, setMakePostData ] = useState({
         challenge: "",
         image: ""
-    })
+    });
+    const [ challenges, setChallenges ] = useState([]);
+
+    useEffect(() => {
+        fetch("/challenges")
+        .then(resp => resp.json())
+        .then(challengesData => {
+            // console.log(challengesData);
+            setChallenges(challengesData);
+        });
+    }, []);
 
     useEffect(() => {
         if (user) {
@@ -68,7 +78,7 @@ function MyPage({ user }) {
             const longitude = newImageExif['GPS'][piexif.GPSIFD.GPSLongitude][2][0]
 
             fetch('/posts', {
-                method: "Post",
+                method: "POST",
                 headers: {
                     "Content-Type" : "application/json"
                 },
@@ -85,6 +95,36 @@ function MyPage({ user }) {
                 setUserPosts([...userPosts, newPost]);
             });
 
+            if (challenges[parseInt(makePostData.challenge)-1] === challenges.length){
+                fetch(`/users/${user.username}`, {
+                    method: "PATCH",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        points: user.points + 5
+                    })
+                })
+                .then(resp => resp.json())
+                .then(userData => {
+                    setPoints(userData.points);
+                });
+             } else {
+                fetch(`/users/${user.username}`, {
+                    method: "PATCH",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        points: user.points + 3
+                    })
+                })
+                .then(resp => resp.json())
+                .then(userData => {
+                    setPoints(userData.points);
+                });
+             };
+
             setMakePostData({
                 challenge: "",
                 image: ""
@@ -96,8 +136,8 @@ function MyPage({ user }) {
           reader.onerror = ( error ) => {
             console.log("error: ", error);
           };
-        }
-    }
+        };
+    };
 
     return (
         <div className="mypage">
@@ -105,7 +145,7 @@ function MyPage({ user }) {
                     <>
                     <div className="logged-in">
                         <div className="profile-side">
-                        <ProfileCard user={user} />
+                        <ProfileCard user={user} points={points}/>
                         </div>
                         <div className="user-posts">
                             {userPosts.length > 0 ? <PostCardList posts={userPosts} /> : <h1>You Don't Have Any Posts Yet...<br/>Make A Post Below!</h1>}
