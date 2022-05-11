@@ -1,0 +1,12 @@
+.feed-post-element h2 {
+    font-size: 1.5em;
+    line-height: 1.25em;
+    font-family: 'Bungee', cursive;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+}
+
+.feed-post-element hr {
+    border: 1px solid red;
+    width: 98%;
+}

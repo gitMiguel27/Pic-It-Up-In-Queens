@@ -22,6 +22,7 @@ function App() {
       if (resp.ok) {
         resp.json().then((user) => {
           setUser(user)
+          setPoints(user.points)
         })
       }
     });
@@ -29,7 +30,7 @@ function App() {
 
   return (
     <div className='app'>
-      <Navbar user={user}/>
+      <Navbar user={user} setUser={setUser}/>
         <Routes>
           <Route exact path='/' element={<Home />}>
           </Route>

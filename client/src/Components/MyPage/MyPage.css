@@ -18,13 +18,14 @@
 }
 
 .make-a-post {
-    max-width: 35%;
+    width: 50%;
 }
 
 .make-a-post h1 {
     color: rgb(255, 255, 255);
     /* font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; */
     font-family: 'Bungee', cursive;
+    text-align: center;
 }
 
 #login-message {
@@ -35,13 +36,29 @@
 }
 
 .post-area {
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.3);
 }
 
 .post-form {
     display: flex;
     flex-direction: column;
-    max-width: max-content;
+    margin: auto;
+    padding-top: 1em;
+    width: 30%;
+}
+
+.post-form button {
+    max-width: 50%;
+    width: 8em;
+    margin: auto;
+    background-color: black;
+    font-size: 1.15em;
+    color: white;
+}
+
+.post-form button:hover {
+    background-color: red;
+    color: white;
 }
 
 .post-preview {
@@ -49,7 +66,10 @@
 }
 
 .post-preview-img {
-    width: 100%;
+    width: 65%;
     height: auto;
+    display: flex;
+    margin: auto;
+    padding-bottom: 1em;
     object-fit: contain;
 }

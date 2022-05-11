@@ -26,11 +26,48 @@
 .login-form-container form {
     display: flex;
     flex-direction: column;
-    width: 50%;
+    align-items: center;
+    /* width: 50%; */
+    margin-top: 3em;
+    margin-bottom: 1.5em;
+}
+
+.login input {
+    width: 25em;
+    height: 1.75em;
+}
+
+.login button {
+    width: 25em;
+    height: 1.75em;
+    max-width: 35%;
+    margin-top: 0.25em;
+    font-size: 1em;
+    font-family: 'Bungee', cursive;
+}
+.login button:hover {
+    background-color: red;
+    color: white;
+}
+
+.errors-container {
+    margin-top: 1em;
+}
+
+.login error {
+    font-family: 'Bungee', cursive;
 }
 
 #signup-text {
     text-align: center;
     font-family: 'Bungee', cursive;
     color: white;
+}
+
+.login a {
+    color:rgb(255, 255, 255);
+}
+
+.login a:hover{
+    color: black;
 }

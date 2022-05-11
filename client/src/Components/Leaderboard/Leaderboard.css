@@ -8,3 +8,28 @@
     /* font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; */
     font-family: 'Bungee', cursive;
 }
+
+.table-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 50%;
+    margin: auto;
+}
+
+th {
+    background: rgba(255, 255, 255, 0.75);
+    font-size: 1.75em;
+    line-height: 1.25em;
+    font-family: 'Bungee', cursive;
+}
+
+tr {
+    background: rgba(255, 255, 255, 0.3);
+    font-size: 1.5em;
+    line-height: 1.5em;
+    font-family: 'Bungee', cursive;
+}
+
+td {
+    text-align: center;
+}

@@ -25,13 +25,17 @@ function Feed() {
     },[]);
 
     const posts = feedPosts.map(post => {
-        return <FeedPost key={post.id} post={post} challenges={challenges}/>
+        return <FeedPost key={post.image} post={post} challenges={challenges}/>
     });
 
     return (
         <div className="feed">
             <h1 id="feed-title">Welcome To The Feed</h1>
-            {feedPosts.length > 0 ? {posts} : <h1>Waiting For Players To Complete Challenges...</h1>}
+            <div className="feed-posts">
+                {
+                    feedPosts.length > 0 ? posts : <h1>Waiting For Players To Complete Challenges...</h1>
+                }
+            </div>
         </div>
     )
 };

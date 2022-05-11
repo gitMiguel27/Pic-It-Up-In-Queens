@@ -35,3 +35,9 @@
     /* color: rgb(94, 43, 43); */
     color: black;
 }
+
+.logout-button {
+    background-color: black;
+    padding: 1em 1em;
+    font-size: 1em;
+}

@@ -1,9 +1,10 @@
 import React from "react";
 import './ChallengeCard.css'
 
-function ChallengeCard({ challenge }) {
+function ChallengeCard({ challenge, color }) {
+
     return (
-        <div className="card-container">
+        <div className={color? "last-card-container" : "card-container"}>
             <div className="card-header">
                 <h1 className="challenge-location">#{challenge.id} - {challenge.location}</h1>
                 <h1>Difficulty: {challenge.difficulty}</h1>

@@ -17,7 +17,6 @@ function MyPage({ user, setPoints, points }) {
         fetch("/challenges")
         .then(resp => resp.json())
         .then(challengesData => {
-            // console.log(challengesData);
             setChallenges(challengesData);
         });
     }, []);
@@ -27,7 +26,6 @@ function MyPage({ user, setPoints, points }) {
             fetch('/posts')
             .then(resp => resp.json())
             .then(postsData => {
-                // console.log(postsData.filter(post => post.user.id === user.id));
                 let filteredPosts = postsData.filter(post => post.user.id === user.id);
                 setUserPosts(filteredPosts);
             })
@@ -36,15 +34,15 @@ function MyPage({ user, setPoints, points }) {
 
     function handleChange(event) {
         if (event.target.name === "image") {
-            // console.log(event.target.files[0]);
-            const reader = new FileReader();
-            reader.onload = () =>{
-              if(reader.readyState === 2){
-                setImagePreview(reader.result)
-              }
-            }
-            reader.readAsDataURL(event.target.files[0]);
-
+            if (event.target.files[0]) {
+                const reader = new FileReader();
+                reader.onload = () =>{
+                  if(reader.readyState === 2){
+                    setImagePreview(reader.result)
+                  }
+                }
+                reader.readAsDataURL(event.target.files[0]);
+            };
             setMakePostData({
                 ...makePostData,
                 [event.target.name]: event.target.value
@@ -60,8 +58,6 @@ function MyPage({ user, setPoints, points }) {
 
     function handleMakePost(event) {
         event.preventDefault();
-        // console.log(makePostData);
-        // console.log(event.target[1].files[0]);
         const imageFile = event.target[1].files[0];
 
         getLatitudeAndLongitude(imageFile);
@@ -83,7 +79,7 @@ function MyPage({ user, setPoints, points }) {
                     "Content-Type" : "application/json"
                 },
                 body: JSON.stringify({
-                    date: 20220510,
+                    date: 20220511,
                     latitude: latitude,
                     longitude: longitude,
                     user_id: user.id,
@@ -102,7 +98,7 @@ function MyPage({ user, setPoints, points }) {
                         "Content-Type": "application/json"
                     },
                     body: JSON.stringify({
-                        points: user.points + 5
+                        points: user.points + 5 + challenges[parseInt(makePostData.challenge) - 1].difficulty
                     })
                 })
                 .then(resp => resp.json())
@@ -116,7 +112,7 @@ function MyPage({ user, setPoints, points }) {
                         "Content-Type": "application/json"
                     },
                     body: JSON.stringify({
-                        points: user.points + 3
+                        points: user.points + 3 + challenges[parseInt(makePostData.challenge) - 1].difficulty
                     })
                 })
                 .then(resp => resp.json())
@@ -172,25 +168,3 @@ function MyPage({ user, setPoints, points }) {
 }
 
 export default MyPage;
-
-    // function loadPiexif( file ) {
-    //     const reader = new FileReader();
-    //     if (file) {
-    //       reader.readAsDataURL(file);
-    //       reader.onload = () => {
-    //         const Base64 = reader.result;
-    //         //convert binary to base64
-    //         console.log(Base64);
-    //         //use piexif.load on base64 here!
-    //         // console.log(piexif.load(Base64));
-    //         const newImageExif = piexif.load(Base64);
-    //         // console.log(newImageExif['GPS'][piexif.GPSIFD.GPSLatitude])
-    //         // console.log(newImageExif['GPS'][piexif.GPSIFD.GPSLongitude])
-  
-    //         return newImageExif
-    //       };
-    //       reader.onerror = ( error ) => {
-    //         console.log("error: ", error);
-    //       };
-    //     }
-    // };

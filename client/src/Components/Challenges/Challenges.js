@@ -17,14 +17,13 @@ function Challenges() {
     const lastChallenge = challenges.filter(challenge => challenge.id === challenges.length);
     const challengesExceptLast = challenges.filter(challenge => challenge.id !== challenges.length);
 
-
     return (
         <div className="challenges-page">
             <h1 className="challenges-titles">Challenge Of The Day - 5 pts.</h1>
             <div className="challenge-of-the-day">
                 {
                     lastChallenge.map(challenge => {
-                        return <ChallengeCard key={challenge.id} challenge={challenge}/>
+                        return <ChallengeCard key={challenge.id} challenge={challenge} color={true}/>
                     })
                 }
             </div>
@@ -32,7 +31,7 @@ function Challenges() {
             <div className="challenge-cards">
                 {
                     challengesExceptLast.map(challenge => {
-                        return <ChallengeCard key={challenge.id} challenge={challenge}/>
+                        return <ChallengeCard key={challenge.id} challenge={challenge} color={false}/>
                     })
                 }
             </div>

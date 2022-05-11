@@ -1,9 +1,21 @@
 import React from "react";
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import Typical from 'react-typical';
 import './Navbar.css'
 
-function Navbar({ user }) {
+function Navbar({ user, setUser }) {
+    let navigate = useNavigate();
+
+    function handleLogoutClick() {
+        fetch("/logout", { method: "DELETE" }).then((resp) => {
+            if (resp.ok) {
+                setUser(null);
+                navigate("/home");
+                console.log('logout success')
+            alert (`Play Again Soon!`)
+            }
+        });
+    };
 
     return (
         <nav className="navbar">
@@ -34,7 +46,8 @@ function Navbar({ user }) {
                 <NavLink activeClassName="active" to='/pic-it-up-101'>Pic-It-Up 101</NavLink>
                 <NavLink activeClassName="active" to='/feed'>Feed</NavLink>
                 <NavLink activeClassName="active" to='/leaderboard'>Leaderboard</NavLink>
-                <NavLink activeClassName="active" to={user !== null ? '/mypage' : '/login'}>{user !== null ? "My Page" : "Login"}</NavLink>
+                <NavLink activeClassName="active" to={user ? '/mypage' : '/login'}>{user ? "My Page" : "Login"}</NavLink>
+                {user ? <button className="logout-button" onClick={handleLogoutClick}>Logout</button> : console.log("waiting for user to sign-in...")}
                 {/* use state for to and content */}
             </div>
         </nav>

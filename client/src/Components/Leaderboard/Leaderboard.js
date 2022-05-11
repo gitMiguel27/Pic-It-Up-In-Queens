@@ -15,7 +15,31 @@ function Leaderboard() {
 
     return (
         <div className="leaderboard">
-            <h1 id="leaderboard-title">Pic-It-Up Leaderboard<br/>Check Out Who's On Top</h1>
+            <h1 id="leaderboard-title">Pic-It-Up Leaderboard</h1>
+            <div className="table-container">
+                <table className="leaderboard-table">
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>User</th>
+                            <th>Points</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {
+                            rankedUsers.map(user => {
+                                return (
+                                    <tr>
+                                        <td>{rankedUsers.indexOf(user)+1}</td>
+                                        <td>{user.username}</td>
+                                        <td>{user.points}</td>
+                                    </tr>
+                                )
+                            })
+                        }
+                    </tbody>
+                </table>
+            </div>
         </div>
     )
 }
