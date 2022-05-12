@@ -47,7 +47,7 @@ function Navbar({ user, setUser }) {
                 <NavLink activeClassName="active" to='/feed'>Feed</NavLink>
                 <NavLink activeClassName="active" to='/leaderboard'>Leaderboard</NavLink>
                 <NavLink activeClassName="active" to={user ? '/mypage' : '/login'}>{user ? "My Page" : "Login"}</NavLink>
-                {user ? <button className="logout-button" onClick={handleLogoutClick}>Logout</button> : console.log("waiting for user to sign-in...")}
+                {user ? <button className="logout-button" onClick={handleLogoutClick}>Logout</button> : null}
                 {/* use state for to and content */}
             </div>
         </nav>

@@ -6,7 +6,7 @@ function PostCardList({ posts }) {
 
     return (
         <div className="post-card-list">
-            <h1 id="my-posts">My Posts:</h1>
+            <h1 id="my-posts">Completed Challenges:</h1>
             {
                 posts.map(post => {
                     return <PostCard key={post.id} post={post} />

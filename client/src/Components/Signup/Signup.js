@@ -60,10 +60,10 @@ function Signup({ setUser }) {
     return (
         <div className="signup">
             <div className='account-form-container'>
-                <h3> Create An Account </h3>
-                <form onSubmit={handleSubmit}> 
+                <h1> Create An Account <br/> Below </h1>
+                <form className="signup-form" onSubmit={handleSubmit}> 
                     <label>
-                    Full Name: 
+                    Full Name: {''}
                     <input
                         name='full_name'
                         type="text"
@@ -73,7 +73,7 @@ function Signup({ setUser }) {
                     />
                     </label>
                     <label>
-                    Username: 
+                    Username: {''}
                     <input
                         name='username'
                         type="text"
@@ -83,7 +83,7 @@ function Signup({ setUser }) {
                     />
                     </label>
                     <label>
-                    Email: 
+                    Email: {''}
                     <input
                         name='email'
                         type="email"
@@ -93,7 +93,7 @@ function Signup({ setUser }) {
                     />
                     </label>
                     <label>
-                    Password: 
+                    Password: {''}
                     <input
                         name='password'
                         type="password"
@@ -103,7 +103,7 @@ function Signup({ setUser }) {
                     />
                     </label>
                     <label>
-                    Profile Pic: 
+                    Profile Pic: {''}
                     <input
                         name='profile_pic'
                         type="text"
@@ -114,6 +114,7 @@ function Signup({ setUser }) {
                     </label>
                     <input className='submit' type="submit" value="Submit" />
                 </form>
+                <h1 id="signup-footer" > Hurry if you want to rack up points... </h1>
             </div>
         </div>
     )

@@ -30,7 +30,7 @@ function Feed() {
 
     return (
         <div className="feed">
-            <h1 id="feed-title">Welcome To The Feed</h1>
+            <h1 id="feed-title">Pic-It-Up Feed</h1>
             <div className="feed-posts">
                 {
                     feedPosts.length > 0 ? posts : <h1>Waiting For Players To Complete Challenges...</h1>

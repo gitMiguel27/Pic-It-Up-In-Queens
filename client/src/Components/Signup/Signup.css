@@ -1,3 +1,64 @@
 .signup {
     min-height: 100vh;
 }
+
+.account-form-container {
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    background: rgba(255, 255, 255, 0.2);
+    height: 55em;
+    max-width: 25%;
+}
+
+.signup h1 {
+    font-family: 'Bungee', cursive;
+    color: white;
+    text-align: center;
+    text-decoration: underline;
+}
+
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    /* margin-top: 1.5em;
+    margin-bottom: 1.5em; */
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.signup-form label {
+    font-family: 'Bungee', cursive;
+    margin-top: 1.5em;
+}
+
+.signup-form label {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.submit {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1.5em;
+    background-color: black;
+    color: white;
+    width: 25em;
+    height: 1.75em;
+    max-width: 35%;
+    font-size: 1em;
+}
+
+.submit:hover {
+    background-color: red;
+    color: white;
+}
+
+#signup-footer {
+    text-decoration: none;
+    margin-top: auto;
+}

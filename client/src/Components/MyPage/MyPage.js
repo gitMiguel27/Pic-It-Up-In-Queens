@@ -87,7 +87,9 @@ function MyPage({ user, setPoints, points }) {
                 })
             })
             .then(resp => {
-                if (resp.created) {
+                if (resp.status === 500) {
+                    resp.json().then(alert("You weren't close enough to fulfill challenge requirements. Try Again!"))
+                } else {
                     resp.json().then(newPost => {
                         setUserPosts([...userPosts, newPost]);
                         if (challenges[parseInt(makePostData.challenge)-1] === challenges.length){
@@ -120,9 +122,6 @@ function MyPage({ user, setPoints, points }) {
                             });
                         };
                     })
-                } else {
-                    resp.json().then((err) => console.log(err.errors));
-                    // figure out a way to just bs this part -> maybe an alert
                 }
             });
 
@@ -149,10 +148,10 @@ function MyPage({ user, setPoints, points }) {
                         <ProfileCard user={user} points={points}/>
                         </div>
                         <div className="user-posts">
-                            {userPosts.length > 0 ? <PostCardList posts={userPosts} /> : <h1>You Don't Have Any Posts Yet...<br/>Make A Post Below!</h1>}
+                            {userPosts.length > 0 ? <PostCardList posts={userPosts} /> : <h1>You Don't Have Any Posts Yet...</h1>}
                         </div>
                         <div className="make-a-post">
-                            <h1>Make A Post!</h1>
+                            <h1>Complete a Challenge!</h1>
                             <div className="post-area">
                                 <form className="post-form" onSubmit={handleMakePost}>
                                     <input type="text" name="challenge" placeholder="challenge number..." required value={makePostData.challenge} onChange={handleChange} />

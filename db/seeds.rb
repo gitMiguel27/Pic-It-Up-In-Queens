@@ -4,9 +4,11 @@ Challenge.destroy_all
 
 puts '🌱 Seeding Users...'
 
-miguel = User.create(full_name: "Miguel Nazario", username: "duhitz_miguel", email: "mnazario@gmail.com", password: "miggy123", profile_pic: "/images/duhitz_miguel.jpeg", points: 32)
-peace = User.create(full_name: "Peace Prosperity", username: "peace_and_prosperity", email: "peace@gmail.com", password: "prosperityroom", profile_pic: "/images/PeaceUserProfilePic.jpg", points: 21)
-#  = User.create(full_name: "", username: "", email: "", password_digest: "", profile_pic: "", followers: )
+miguel = User.create(full_name: "Miguel Nazario", username: "duhitz_miguel", email: "mnazario@gmail.com", password: "miggy123", profile_pic: "/images/duhitz_miguel.jpeg", points: 21)
+peace = User.create(full_name: "Peace Prosperity", username: "peace_and_prosperity", email: "peace@gmail.com", password: "prosperityroom", profile_pic: "/images/PeaceUserProfilePic.jpg", points: 20)
+u3 = User.create(full_name: "Tunisia User", username: "t_user", email: "t@gmail.com", password_digest: "t123", profile_pic: "https://i.pinimg.com/originals/16/f1/54/16f154ab0ac5bce014f79d649605eb9c.png", points: 2)
+u4 = User.create(full_name: "Gerald User", username: "g_user", email: "g@gmail.com", password_digest: "g123", profile_pic: "https://miro.medium.com/max/1400/1*bbw0fG-fExcsei5XFKEv6Q.png", points: 4)
+u5 = User.create(full_name: "Bridget User", username: "b_user", email: "b@user.com", password_digest: "b123", profile_pic: "https://upload.wikimedia.org/wikipedia/en/thumb/3/3b/SpongeBob_SquarePants_character.svg/1200px-SpongeBob_SquarePants_character.svg.png", points: 6)
 
 puts '🌱 Seeding Challenges...'
 
@@ -22,7 +24,7 @@ puts '🌱 Seeding Posts...'
 
 p1 = Post.create(image: "/images/userPosts/AstoriaPark_Peace_User.jpeg", date: 20220501, latitude: 3985, longitude: 2851, user_id: peace.id, challenge_id: astoria_park.id)
 p2 = Post.create(image: "/images/userPosts/MainSt_duhitz_Miguel.jpeg", date: 20220503, latitude: 2927, longitude: 4579, user_id: miguel.id, challenge_id: main_street.id)
-p3 = Post.create(image: "/images/userPosts/LICLibrary_Peace_User.jpeg", date: 20220504, latitude: 4426, longitude: 2962, user_id: peace.id, challenge_id: lic_library.id)
+# p3 = Post.create(image: "/images/userPosts/LICLibrary_Peace_User.jpeg", date: 20220504, latitude: 4426, longitude: 2962, user_id: peace.id, challenge_id: lic_library.id)
 p4 = Post.create(image: "/images/userPosts/PepsiCola_duhitz_Miguel.jpeg", date: 20220506, latitude: 5053, longitude: 2952, user_id: miguel.id, challenge_id: pepsi_cola.id)
 p5 = Post.create(image: "/images/userPosts/Sunnyside_duhitz_Miguel.jpeg", date: 20220509, latitude: 3420, longitude: 779, user_id: miguel.id, challenge_id: sunnyside.id)
 p6 = Post.create(image: "/images/userPosts/Sunnyside_Peace_User.jpeg", date: 20220508, latitude: 3404, longitude: 760, user_id: peace.id, challenge_id: sunnyside.id)
