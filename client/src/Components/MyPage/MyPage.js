@@ -79,7 +79,7 @@ function MyPage({ user, setPoints, points }) {
                     "Content-Type" : "application/json"
                 },
                 body: JSON.stringify({
-                    date: 20220511,
+                    date: 20220512,
                     latitude: latitude,
                     longitude: longitude,
                     user_id: user.id,
@@ -120,6 +120,9 @@ function MyPage({ user, setPoints, points }) {
                             });
                         };
                     })
+                } else {
+                    resp.json().then((err) => console.log(err.errors));
+                    // figure out a way to just bs this part -> maybe an alert
                 }
             });
 
