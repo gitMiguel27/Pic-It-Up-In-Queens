@@ -15,8 +15,8 @@ function Challenges() {
         });
     }, []);
 
-    const lastChallenge = challenges.filter(challenge => challenge.id === challenges.length);
-    const challengesExceptLast = challenges.filter(challenge => challenge.id !== challenges.length);
+    const lastChallenge = challenges.filter(challenge => challenge.id === challenges[challenges.length - 1].id);
+    const challengesExceptLast = challenges.filter(challenge => challenge.id !== challenges[challenges.length - 1].id);
 
     return (
         <div className="challenges-page">

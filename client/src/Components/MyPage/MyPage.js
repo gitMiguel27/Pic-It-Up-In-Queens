@@ -79,7 +79,7 @@ function MyPage({ user, setPoints, points }) {
                     "Content-Type" : "application/json"
                 },
                 body: JSON.stringify({
-                    date: 20220512,
+                    date: 20220713,
                     latitude: latitude,
                     longitude: longitude,
                     user_id: user.id,
