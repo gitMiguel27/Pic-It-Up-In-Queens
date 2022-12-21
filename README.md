@@ -23,7 +23,7 @@ As a user YOU can:
 
 #### npm start --prefix client
 
-Runs the front-end
+Runs the front-end.
 Open http://localhost:3000 to view it in the browser.
 
 The page will reload if you make edits.
