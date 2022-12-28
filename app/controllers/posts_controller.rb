@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
     skip_before_action :authorize, only: [:create, :index]
+    
     def index
         posts = Post.all.sort{|a,b| b.date <=> a.date}
         render json: posts, status: :ok

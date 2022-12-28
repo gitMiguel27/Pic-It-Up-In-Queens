@@ -26,7 +26,18 @@ function App() {
         })
       }
     });
-  }, []);
+  },[]);
+
+  const [ challenges, setChallenges ] = useState([]);
+
+  useEffect(() => {
+      fetch('/challenges')
+      .then(resp => resp.json())
+      .then(challengesData => {
+          // console.log(challengesData);
+          setChallenges(challengesData);
+      });
+  },[]);
 
   return (
     <div className='app'>
@@ -36,11 +47,11 @@ function App() {
           </Route>
           <Route path='/home' element={<Home />}>
           </Route>
-          <Route path='/challenges' element={<Challenges />}>
+          <Route path='/challenges' element={<Challenges challenges={challenges} />}>
           </Route>
           <Route path='/pic-it-up-101' element={<PicItUp101 />}>
           </Route>
-          <Route path='/feed' element={<Feed />}>
+          <Route path='/feed' element={<Feed challenges={challenges}/>}>
           </Route>
           <Route path='/leaderboard' element={<Leaderboard />}>
           </Route>

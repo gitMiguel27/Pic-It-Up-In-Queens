@@ -12,6 +12,8 @@ function MyPage({ user, setPoints, points }) {
         image: ""
     });
     const [ challenges, setChallenges ] = useState([]);
+    const current = new Date();
+    const today = `${current.getFullYear()}${current.getMonth()+1}${current.getDate()}`;
 
     useEffect(() => {
         fetch("/challenges")
@@ -79,7 +81,7 @@ function MyPage({ user, setPoints, points }) {
                     "Content-Type" : "application/json"
                 },
                 body: JSON.stringify({
-                    date: 20221221,
+                    date: today,
                     latitude: latitude,
                     longitude: longitude,
                     user_id: user.id,

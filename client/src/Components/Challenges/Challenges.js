@@ -1,19 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import ChallengeCard from "./ChallengeCard";
 import Typical from 'react-typical';
 import "./Challenges.css"
 
-function Challenges() {
-    const [ challenges, setChallenges ] = useState([]);
+function Challenges({ challenges }) {
 
-    useEffect(() => {
-        fetch("/challenges")
-        .then(resp => resp.json())
-        .then(challengesData => {
-            // console.log(challengesData);
-            setChallenges(challengesData);
-        });
-    }, []);
 
     const lastChallenge = challenges.filter(challenge => challenge.id === challenges[challenges.length - 1].id);
     const challengesExceptLast = challenges.filter(challenge => challenge.id !== challenges[challenges.length - 1].id);

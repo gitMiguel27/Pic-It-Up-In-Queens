@@ -37,11 +37,11 @@ function Leaderboard() {
                                                 loop={Infinity}
                                                 wrapper="b"
                                                 steps={[
-                                                    `${user.username}`,
+                                                    user.username,
                                                     1500,
                                                     '',
                                                     100,
-                                                    `${user.username}`,
+                                                    user.username,
                                                     8500
                                                 ]}
                                             />

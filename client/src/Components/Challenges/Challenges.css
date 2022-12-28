@@ -11,9 +11,8 @@
 
 .challenge-cards {
     display: flex;
-    flex-direction: row;
+    justify-content: space-evenly;
     flex-wrap: wrap;
-    justify-content: space-between;
 }
 
 .challenge-of-the-day {

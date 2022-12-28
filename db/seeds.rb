@@ -18,7 +18,7 @@ lic_library = Challenge.create(image: "/images/challenges/LICLibrary.jpeg", loca
 pepsi_cola = Challenge.create(image: "/images/challenges/PepsiCola.jpeg", location: "Gantry Plaza State Park", latitude: 5055, longitude: 2954, hint: "A refreshing drink for a beautiful day.", difficulty: 5)
 sunnyside = Challenge.create(image: "/images/challenges/Sunnyside.jpeg", location: "Sunnyside", latitude: 3426, longitude: 760, hint: "Don't look up.", difficulty: 3)
 lic_port = Challenge.create(image: "/images/challenges/LICPort.jpeg", location: "Gantry Plaza State Park", latitude: 4202, longitude: 3226, hint: "If you were a boat, you would like the view too.", difficulty: 4)
-corona_plaza = Challenge.create(image: "/images/challenges/CoronaPlaza.jpeg", location: "Corona", latitude: 5946, longitude: 4356, hint: "Smell all that food? That's corona #notSponsored", difficulty: 2)
+corona_plaza = Challenge.create(image: "/images/challenges/CoronaPlaza.jpeg", location: "Corona", latitude: 5946, longitude: 4356, hint: "Smell all that food? That's Corona.", difficulty: 2)
 
 puts '🌱 Seeding Posts...'
 
