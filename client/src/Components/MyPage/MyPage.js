@@ -4,24 +4,17 @@ import PostCardList from "./PostCardList";
 import piexif from 'piexifjs';
 import "./MyPage.css"
 
-function MyPage({ user, setPoints, points }) {
+function MyPage({ user, setPoints, points, challenges }) {
     const [ userPosts, setUserPosts ] = useState([]);
     const [ imagePreview, setImagePreview ] = useState("");
     const [ makePostData, setMakePostData ] = useState({
         challenge: "",
         image: ""
     });
-    const [ challenges, setChallenges ] = useState([]);
+
     const current = new Date();
     const today = `${current.getFullYear()}${current.getMonth()+1}${current.getDate()}`;
-
-    useEffect(() => {
-        fetch("/challenges")
-        .then(resp => resp.json())
-        .then(challengesData => {
-            setChallenges(challengesData);
-        });
-    }, []);
+    console.log(today);
 
     useEffect(() => {
         if (user) {
@@ -94,19 +87,23 @@ function MyPage({ user, setPoints, points }) {
                 } else {
                     resp.json().then(newPost => {
                         setUserPosts([...userPosts, newPost]);
-                        if (challenges[parseInt(makePostData.challenge)-1] === challenges.length){
+
+                        let selectedChallenge = challenges.find(c => c.id === parseInt(makePostData.challenge));
+                        
+                        if (makePostData.challenge === challenges[challenges.length - 1].id){
                             fetch(`/users/${user.username}`, {
                                 method: "PATCH",
                                 headers: {
                                     "Content-Type": "application/json"
                                 },
                                 body: JSON.stringify({
-                                    points: user.points + 5 + challenges[parseInt(makePostData.challenge) - 1].difficulty
+                                    points: user.points + 5 + selectedChallenge.difficulty
                                 })
                             })
                             .then(resp => resp.json())
                             .then(userData => {
                                 setPoints(userData.points);
+                                console.log(points);
                             });
                         } else {
                             fetch(`/users/${user.username}`, {
@@ -115,12 +112,13 @@ function MyPage({ user, setPoints, points }) {
                                     "Content-Type": "application/json"
                                 },
                                 body: JSON.stringify({
-                                    points: user.points + 3 + challenges[parseInt(makePostData.challenge) - 1].difficulty
+                                    points: user.points + 3 + selectedChallenge.difficulty
                                 })
                             })
                             .then(resp => resp.json())
                             .then(userData => {
                                 setPoints(userData.points);
+                                console.log(points);
                             });
                         };
                     })
@@ -146,18 +144,16 @@ function MyPage({ user, setPoints, points }) {
                 {user ? 
                     <>
                     <div className="logged-in">
-                        <div className="profile-side">
                         <ProfileCard user={user} points={points}/>
-                        </div>
                         <div className="user-posts">
                             {userPosts.length > 0 ? <PostCardList posts={userPosts} /> : <h1>You Don't Have Any Posts Yet...</h1>}
                         </div>
                         <div className="make-a-post">
                             <h1>Complete a Challenge!</h1>
                             <div className="post-area">
-                                <form className="post-form" onSubmit={handleMakePost}>
+                                <form className="post-form" onSubmit={handleMakePost} >
                                     <input type="text" name="challenge" placeholder="challenge number..." required value={makePostData.challenge} onChange={handleChange} />
-                                    <input type="file" accept="image/*" name="image" required value={makePostData.image} onChange={handleChange}/>
+                                    <input type="file" accept="image/*" name="image" required value={makePostData.image} onChange={handleChange} />
                                     <button type="submit">Post</button>
                                 </form>
                                 <div className="post-preview">

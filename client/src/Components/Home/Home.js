@@ -22,8 +22,8 @@ function Home() {
                                 'Announcements',
                                 7500
                             ]}
-                        />
-                    </h1>
+                    />
+                </h1>
                 <ol id="announcement-list">
                     <li className="announcement">
                         <p>New Challenge Of The Day posted!!! Hurry if you want to rack up as many points as you can.</p>

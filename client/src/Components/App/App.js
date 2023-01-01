@@ -51,15 +51,15 @@ function App() {
           </Route>
           <Route path='/pic-it-up-101' element={<PicItUp101 />}>
           </Route>
-          <Route path='/feed' element={<Feed challenges={challenges}/>}>
+          <Route path='/feed' element={<Feed challenges={challenges} />}>
           </Route>
           <Route path='/leaderboard' element={<Leaderboard />}>
           </Route>
-          <Route path='/login' element={<Login setUser={setUser} setPoints={setPoints}/>}>
+          <Route path='/login' element={<Login setUser={setUser} setPoints={setPoints} />}>
           </Route>
-          <Route path='/signup' element={<Signup setUser={setUser}/>}>
+          <Route path='/signup' element={<Signup setUser={setUser} />}>
           </Route>
-          <Route path='/mypage' element={<MyPage user={user} setPoints={setPoints} points={points}/>}>
+          <Route path='/mypage' element={<MyPage user={user} setPoints={setPoints} points={points} challenges={challenges} />}>
           </Route>
         </Routes>
       <Footer/>

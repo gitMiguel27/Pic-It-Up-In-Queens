@@ -4,26 +4,19 @@
 
 .logged-in {
     display: flex;
-    flex-direction: row;
-}
-
-.profile-side h1 {
-    color: rgb(255, 255, 255);
-    /* font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; */
-    font-family: 'Bungee', cursive;
-}
-
-.user-posts {
-    width: 50%;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
 }
 
 .make-a-post {
     width: 50%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .make-a-post h1 {
     color: rgb(255, 255, 255);
-    /* font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; */
     font-family: 'Bungee', cursive;
     text-align: center;
 }

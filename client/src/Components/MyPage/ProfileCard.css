@@ -1,12 +1,11 @@
 .profile-card {
     display: flex;
     flex-direction: column;
-    justify-content: left;
+    align-items: center;
 }
 
 .profile-card h1 {
     color: rgb(255, 255, 255);
-    /* font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; */
     font-family: 'Bungee', cursive;
 }
 
