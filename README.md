@@ -40,7 +40,7 @@ Since this is my personal project, completed for the Flatiron School, I would ad
 
 ## Known issues (Work in progress)
 
-This project is still ongoing. The date does not update dynamically when a user submit a post to a challenge. The validation for the location of the uploaded picture is still in progress but works hard-codedly. These are coming soon!
+This project is still ongoing. ~~ The date does not update dynamically when a user submits a post to a challenge. ~~ UPDATE: The date bug has been fixed and now is dynamically submitted with a user's post! The validation for the location of the uploaded picture is still in progress but works hard-codedly. These are coming soon!
 
 ## Like this project?
 
