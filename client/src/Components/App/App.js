@@ -21,20 +21,27 @@ function App() {
     fetch("/me").then((resp) => {
       if (resp.ok) {
         resp.json().then((user) => {
-          setUser(user)
-          setPoints(user.points)
+          setUser(user);
+          setPoints(user.points);
         })
       }
     });
   },[]);
 
+  const [ today, setToday ] = useState(null);
+
+  useEffect(() => {
+    const current = new Date();
+    setToday(`${current.getFullYear()}${current.getMonth()+1}${current.getDate()}`);
+    // console.log(today);
+  }, [today])
+
   const [ challenges, setChallenges ] = useState([]);
 
   useEffect(() => {
-      fetch('/challenges')
+      fetch("/challenges")
       .then(resp => resp.json())
       .then(challengesData => {
-          // console.log(challengesData);
           setChallenges(challengesData);
       });
   },[]);
@@ -59,7 +66,7 @@ function App() {
           </Route>
           <Route path='/signup' element={<Signup setUser={setUser} />}>
           </Route>
-          <Route path='/mypage' element={<MyPage user={user} setPoints={setPoints} points={points} challenges={challenges} />}>
+          <Route path='/mypage' element={<MyPage user={user} setPoints={setPoints} points={points} challenges={challenges} today={today}/>}>
           </Route>
         </Routes>
       <Footer/>

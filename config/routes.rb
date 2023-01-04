@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   resources :posts, only: [:index, :create]
 
+  get "/posts/:username", to: "posts#user_posts"
+
   patch "/users/:username", to: "users#update"
   get "/users", to: "users#index"
   post "/signup", to: "users#create"

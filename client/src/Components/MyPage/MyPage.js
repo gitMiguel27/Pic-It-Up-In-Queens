@@ -4,7 +4,7 @@ import PostCardList from "./PostCardList";
 import piexif from 'piexifjs';
 import "./MyPage.css"
 
-function MyPage({ user, setPoints, points, challenges }) {
+function MyPage({ user, setPoints, points, challenges, today }) {
     const [ userPosts, setUserPosts ] = useState([]);
     const [ imagePreview, setImagePreview ] = useState("");
     const [ makePostData, setMakePostData ] = useState({
@@ -12,18 +12,14 @@ function MyPage({ user, setPoints, points, challenges }) {
         image: ""
     });
 
-    const current = new Date();
-    const today = `${current.getFullYear()}${current.getMonth()+1}${current.getDate()}`;
-    console.log(today);
-
     useEffect(() => {
         if (user) {
-            fetch('/posts')
+            fetch(`/posts/${user.username}`)
             .then(resp => resp.json())
             .then(postsData => {
-                let filteredPosts = postsData.filter(post => post.user.id === user.id);
-                setUserPosts(filteredPosts);
-            })
+                console.log(postsData);
+                setUserPosts(postsData);
+            });
         }
     }, [user])
 
@@ -103,7 +99,6 @@ function MyPage({ user, setPoints, points, challenges }) {
                             .then(resp => resp.json())
                             .then(userData => {
                                 setPoints(userData.points);
-                                console.log(points);
                             });
                         } else {
                             fetch(`/users/${user.username}`, {
@@ -118,7 +113,6 @@ function MyPage({ user, setPoints, points, challenges }) {
                             .then(resp => resp.json())
                             .then(userData => {
                                 setPoints(userData.points);
-                                console.log(points);
                             });
                         };
                     })
@@ -146,7 +140,7 @@ function MyPage({ user, setPoints, points, challenges }) {
                     <div className="logged-in">
                         <ProfileCard user={user} points={points}/>
                         <div className="user-posts">
-                            {userPosts.length > 0 ? <PostCardList posts={userPosts} /> : <h1>You Don't Have Any Posts Yet...</h1>}
+                            { userPosts.length > 0 ? <PostCardList posts={userPosts} /> : <h1>You Don't Have Any Posts Yet...</h1> }
                         </div>
                         <div className="make-a-post">
                             <h1>Complete a Challenge!</h1>
