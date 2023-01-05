@@ -28,14 +28,6 @@ function App() {
     });
   },[]);
 
-  const [ today, setToday ] = useState(null);
-
-  useEffect(() => {
-    const current = new Date();
-    setToday(`${current.getFullYear()}${current.getMonth()+1}${current.getDate()}`);
-    // console.log(today);
-  }, [today])
-
   const [ challenges, setChallenges ] = useState([]);
 
   useEffect(() => {
@@ -66,7 +58,7 @@ function App() {
           </Route>
           <Route path='/signup' element={<Signup setUser={setUser} />}>
           </Route>
-          <Route path='/mypage' element={<MyPage user={user} setPoints={setPoints} points={points} challenges={challenges} today={today}/>}>
+          <Route path='/mypage' element={<MyPage user={user} setPoints={setPoints} points={points} challenges={challenges} />}>
           </Route>
         </Routes>
       <Footer/>

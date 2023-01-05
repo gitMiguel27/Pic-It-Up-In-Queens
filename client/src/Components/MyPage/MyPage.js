@@ -4,7 +4,7 @@ import PostCardList from "./PostCardList";
 import piexif from 'piexifjs';
 import "./MyPage.css"
 
-function MyPage({ user, setPoints, points, challenges, today }) {
+function MyPage({ user, setPoints, points, challenges }) {
     const [ userPosts, setUserPosts ] = useState([]);
     const [ imagePreview, setImagePreview ] = useState("");
     const [ makePostData, setMakePostData ] = useState({
@@ -54,7 +54,12 @@ function MyPage({ user, setPoints, points, challenges, today }) {
         getLatitudeAndLongitude(imageFile);
     };
 
-    function getLatitudeAndLongitude(file) {
+
+    function getLatitudeAndLongitude(file) {        
+        const current = new Date();
+        const today = (`${current.getFullYear()}${current.getMonth()+1}${current.getDate()}`);
+        console.log(today);
+
         const reader = new FileReader();
         if (file) {
           reader.readAsDataURL(file);

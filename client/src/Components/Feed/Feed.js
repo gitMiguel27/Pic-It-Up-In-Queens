@@ -9,7 +9,7 @@ function Feed({ challenges }) {
         fetch('/posts')
         .then(resp => resp.json())
         .then(postData => {
-            // console.log(postData);
+            console.log(postData);
             setFeedPosts(postData);
         });
     },[]);
@@ -19,12 +19,12 @@ function Feed({ challenges }) {
             <h1 id="feed-title">Pic-It-Up Feed</h1>
             <div className="feed-posts">
                 {
-                    feedPosts.length === 0 ?
-                    <h1>Waiting For Players To Complete Challenges...</h1>
-                    : 
+                    feedPosts.length > 0 ?
                     feedPosts.map(post => {
                         return <FeedPost key={post.id} post={post} challenges={challenges}/>
                     })
+                    : 
+                    <h1>Waiting For Players To Complete Challenges...</h1>
                 }
             </div>
         </div>
